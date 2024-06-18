@@ -1,7 +1,8 @@
+#多粒子绘图代码
 import math
 import random
 import matplotlib.pyplot as plt
-from turtle import *
+from turtle import *#这个库可以不引用
 # Constant numbers
 PI = 3.14159265358979323846
 x_values=[]
@@ -47,15 +48,9 @@ def ddw(ccl):
     t_values = []
     r_values = []
     theta_values = []
-    
-
-    # Initialize lists to store the data points
-
-
     # Initial conditions
     sita = random.uniform(0, 2 * PI)
     r = random.uniform(0, R0 / 2)
-
     # Simulation loop
     for i in range(n):
         t = h * i
@@ -81,7 +76,7 @@ def ddw(ccl):
         r_values.append(r)
 
         # Random crash condition
-        if random.random() < 0.01:  # 0.01% chance for a crash per step
+        if random.random() < 0.01:  # 0.01 chance for a crash per step
             dd = R0 / 10000  # Crash distance
             fai = random.uniform(0, 2 * PI)  # Random angle for the crash
             delta_r = dd * math.cos(fai)
@@ -97,18 +92,15 @@ def ddw(ccl):
     plt.scatter(x_values, y_values,color=ccl,marker='*',s=0.01)
     
     
-
-'''if __name__ == "__main__":
-    main()'''
+#以下为绘图代码
 plt.title('Scatter Plot of Particle Trajectory in Polar Coordinates')
 plt.xlabel('X coordinate')
 plt.ylabel('Y coordinate')
 plt.grid(True)
-#for ii in range(2000):
 ddw('red')
 ddw('green')
 ddw('yellow')
 ddw('black')
 ddw('purple')
 plt.show()
-
+#
